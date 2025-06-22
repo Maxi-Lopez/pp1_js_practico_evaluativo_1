@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de libros</title>
+</head>  
+
+<body>
+    <h2> - Registro de libros - </h2>
+    <form onsubmit="agregarLibro(); return false">
+        <input type="text" id="titulo" placeholder="Título del libro" required>
+        <input type="text" id="autor" placeholder="Autor del libro" required>
+        <input type="number" id="anio" placeholder="Año de publicación" required>
+        <input type="text" id="genero" placeholder="Género del libro" required>
+       
+        <button type="submit">Agregar libro</button>
+    </form>
+    <br>
+    <h3>Filtrar Libros</h3>
+    <input type="text" id="busqueda" placeholder="Buscar título ...." oninput="filtrarLibros()">
+    <br>
+    <h3>Filtrar Libros por género</h3>
+    <select id="filtroGenero" onchange="filtrarPorGenero()">
+        <option value="todos">Todos</option>
+    </select>
+    <br>
+    <br>
+    <table border="1" id="tablaLibros">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Título</th>
+                <th>Autor</th>
+                <th>Año de Publicación</th>
+                <th>Género</th>
+                <th>Eliminar</th>
+                <th>
+                    <button onclick="ordenarLibro()">Ordenar por fecha</button>
+                </th>                    
+                
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <h3>Resumen de libros</h3>
+    <div id="resumenLibros"></div>
+    <script src="./js/libros.js"></script>
+</body>
+
+</html>
