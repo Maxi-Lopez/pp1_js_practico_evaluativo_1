@@ -149,6 +149,26 @@ const filtrarPorGenero = () => {
 }
 
 
+const filtrarPorLeido = () => {
+    const leido = document.getElementById('filtroLeido').value
+    if (leido === 'todos') {
+        renderizarLibros()
+        mostrarResumen(libros)
+    } 
+    if (leido === 'leidos') {
+        const librosFiltrados = libros.filter(libro => libro.leido === true)
+        renderizarLibros(librosFiltrados)
+        mostrarResumen(libros)
+
+    }
+    if (leido === 'noLeidos') {
+        const librosFiltrados = libros.filter(libro => libro.leido === false)
+        renderizarLibros(librosFiltrados)
+        mostrarResumen(libros)
+
+    }
+}
+
 const ordenarLibro = () => {
     if (orden) {
         const ordenar = libros.sort((a, b) => a.anio - b.anio)
@@ -189,12 +209,3 @@ document.addEventListener('DOMContentLoaded', () => {
     mostrarResumen(libros)
     actualizarSelectGenero()
 })
-
-
-
-/* Falta
-hacer el bonus
-*** chebox (leido)
-*** Mostrar en el resumen cuántos libros fueron leídos / no leídos
-*** Filtro adicional para mostrar solo leídos / no leídos
-*/

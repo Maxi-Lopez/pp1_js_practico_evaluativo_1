@@ -21,9 +21,22 @@
     <h3>Filtrar Libros</h3>
     <input type="text" id="busqueda" placeholder="Buscar título ...." oninput="filtrarLibros()">
     <br>
-    <h3>Filtrar Libros por género</h3>
+<div style="display: flex; gap: 40px; align-items: center;">
+  <div>
+    <h3>Filtrar por género</h3>
     <select id="filtroGenero" onchange="filtrarPorGenero()">
+      <option value="todos">Todos</option>
+    </select>
+  </div>
+  <div>
+    <h3>Filtrar por leídos</h3>
+    <select id="filtroLeido" onchange="filtrarPorLeido()">
         <option value="todos">Todos</option>
+        <option value="leidos">Leídos</option>
+        <option value="noLeidos">No leídos</option>
+</select>
+  </div>
+</div>    
     </select>
     <br>
     <br>
