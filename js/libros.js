@@ -20,7 +20,7 @@ const agregarLibro = () => {
                 alert('El año debe estar entre 1900 y ' + anioActual)
                 return
             }
-            libros[indiceEditar] = { titulo, autor, anio, genero }
+            libros[indiceEditar] = { titulo, autor, anio, genero, leido }
             editando = false
             indiceEditar = null
             document.querySelector('button[type="submit"]').innerText = 'Agregar'
@@ -37,7 +37,7 @@ const agregarLibro = () => {
                 return
             }
 
-            libros.push({ titulo, autor, anio, genero })
+            libros.push({ titulo, autor, anio, genero, leido: false })
         }
 
         localStorage.setItem('libros', JSON.stringify(libros))
@@ -79,8 +79,21 @@ const renderizarLibros = (lista = libros) => {
                 <button onclick="eliminarLibro(${indexReal})">Eliminar</button>
                 <button onclick="editarLibro(${indexReal})">Editar</button>
             </td>
+            <td>
+            <label>
+                <input type="checkbox" class="leido-checkbox" data-index="${indexReal}" ${libro.leido ? 'checked' : ''}>
+                Leído
+            </label>
+            </td>
         `
         tabla.appendChild(fila)
+        const checkbox = fila.querySelector('.leido-checkbox')
+        checkbox.addEventListener('change', (e) => {
+            const i = parseInt(e.target.dataset.index)
+            libros[i].leido = e.target.checked
+            localStorage.setItem('libros', JSON.stringify(libros))
+            mostrarResumen(libros)
+    })
     })
 }
 
@@ -109,6 +122,8 @@ const mostrarResumen = (libros = libros) => {
     const posterioresA2010 = libros.filter(libro => libro.anio > 2010).length
     const libroNuevo = libros.reduce((nuevo, libro) => (libro.anio > nuevo.anio ? libro : nuevo), libros[0])
     const libroViejo = libros.reduce((viejo, libro) => (libro.anio < viejo.anio ? libro : viejo), libros[0])
+    const leidos = libros.filter(libro => libro.leido).length
+    const noLeidos = libros.filter(libro => !libro.leido).length
 
     resumen.innerHTML = `
         <p><strong>Total de libros: </strong>${total}</p>
@@ -116,6 +131,8 @@ const mostrarResumen = (libros = libros) => {
         <p><strong>Libros posteriores a 2010: </strong>${posterioresA2010}</p>
         <p><strong>Libro más nuevo: </strong>${libroNuevo.titulo} de ${libroNuevo.autor}, ${libroNuevo.anio}</p>
         <p><strong>Libro más viejo: </strong>${libroViejo.titulo} de ${libroViejo.autor}, ${libroViejo.anio}</p>
+        <p><strong>Cantidad de libros leídos: </strong>${leidos}</p>
+        <p><strong>Cantidad de libros no leídos: </strong>${noLeidos}</p>
     `
 }
 
