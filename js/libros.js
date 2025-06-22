@@ -1,7 +1,10 @@
 let libros = JSON.parse(localStorage.getItem('libros')) || []
 let editando = false;
 let indiceEditar = null;
+<<<<<<< HEAD
 let orden = true;
+=======
+>>>>>>> 4f354bfa4e3d11b764e1d7890f556909ee955a5b
 
 const agregarLibro = () => {
     const titulo = document.getElementById('titulo').value.trim()
@@ -20,7 +23,11 @@ const agregarLibro = () => {
                 alert('El año debe estar entre 1900 y ' + anioActual)
                 return
             }
+<<<<<<< HEAD
             libros[indiceEditar] = { titulo, autor, anio, genero, leido }
+=======
+            libros[indiceEditar] = { titulo, autor, anio, genero }
+>>>>>>> 4f354bfa4e3d11b764e1d7890f556909ee955a5b
             editando = false
             indiceEditar = null
             document.querySelector('button[type="submit"]').innerText = 'Agregar'
@@ -37,7 +44,11 @@ const agregarLibro = () => {
                 return
             }
 
+<<<<<<< HEAD
             libros.push({ titulo, autor, anio, genero, leido: false })
+=======
+            libros.push({ titulo, autor, anio, genero })
+>>>>>>> 4f354bfa4e3d11b764e1d7890f556909ee955a5b
         }
 
         localStorage.setItem('libros', JSON.stringify(libros))
@@ -79,6 +90,7 @@ const renderizarLibros = (lista = libros) => {
                 <button onclick="eliminarLibro(${indexReal})">Eliminar</button>
                 <button onclick="editarLibro(${indexReal})">Editar</button>
             </td>
+<<<<<<< HEAD
             <td>
             <label>
                 <input type="checkbox" class="leido-checkbox" data-index="${indexReal}" ${libro.leido ? 'checked' : ''}>
@@ -94,6 +106,10 @@ const renderizarLibros = (lista = libros) => {
             localStorage.setItem('libros', JSON.stringify(libros))
             mostrarResumen(libros)
     })
+=======
+        `
+        tabla.appendChild(fila)
+>>>>>>> 4f354bfa4e3d11b764e1d7890f556909ee955a5b
     })
 }
 
@@ -122,6 +138,7 @@ const mostrarResumen = (libros = libros) => {
     const posterioresA2010 = libros.filter(libro => libro.anio > 2010).length
     const libroNuevo = libros.reduce((nuevo, libro) => (libro.anio > nuevo.anio ? libro : nuevo), libros[0])
     const libroViejo = libros.reduce((viejo, libro) => (libro.anio < viejo.anio ? libro : viejo), libros[0])
+<<<<<<< HEAD
     const leidos = libros.filter(libro => libro.leido).length
     const noLeidos = libros.filter(libro => !libro.leido).length
 
@@ -133,6 +150,15 @@ const mostrarResumen = (libros = libros) => {
         <p><strong>Libro más viejo: </strong>${libroViejo.titulo} de ${libroViejo.autor}, ${libroViejo.anio}</p>
         <p><strong>Cantidad de libros leídos: </strong>${leidos}</p>
         <p><strong>Cantidad de libros no leídos: </strong>${noLeidos}</p>
+=======
+
+    resumen.innerHTML = `
+        <p>Total de libros: ${total}</p>
+        <p>Promedio de año de edición: ${promedio}</p>
+        <p>Libros posteriores a 2010: ${posterioresA2010}</p>
+        <p>Libro más nuevo: ${libroNuevo.titulo} de ${libroNuevo.autor}, ${libroNuevo.anio}</p>
+        <p>Libro más viejo: ${libroViejo.titulo} de ${libroViejo.autor}, ${libroViejo.anio}</p>
+>>>>>>> 4f354bfa4e3d11b764e1d7890f556909ee955a5b
     `
 }
 
@@ -149,6 +175,7 @@ const filtrarPorGenero = () => {
 }
 
 
+<<<<<<< HEAD
 const filtrarPorLeido = () => {
     const leido = document.getElementById('filtroLeido').value
     if (leido === 'todos') {
@@ -184,6 +211,8 @@ const ordenarLibro = () => {
 
 
 
+=======
+>>>>>>> 4f354bfa4e3d11b764e1d7890f556909ee955a5b
 const actualizarSelectGenero = () => {
     const select = document.getElementById('filtroGenero')
     const generosUnicos = [...new Set(libros.map(libro => libro.genero))]
@@ -209,3 +238,15 @@ document.addEventListener('DOMContentLoaded', () => {
     mostrarResumen(libros)
     actualizarSelectGenero()
 })
+<<<<<<< HEAD
+=======
+
+
+
+/* Falta agregar funcion de ordenar por año de publicacion
+Y tambien hacer el bonus
+*** chebox (leido)
+*** Mostrar en el resumen cuántos libros fueron leídos / no leídos
+*** Filtro adicional para mostrar solo leídos / no leídos
+*/
+>>>>>>> 4f354bfa4e3d11b764e1d7890f556909ee955a5b
