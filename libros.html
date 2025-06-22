@@ -4,11 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de libros</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <title>Gestor de libros</title>
 </head>  
 
 <body>
-    <h2> - Registro de libros - </h2>
+    <h2> - Gestor de libros - </h2>
     <form onsubmit="agregarLibro(); return false">
         <input type="text" id="titulo" placeholder="Título del libro" required>
         <input type="text" id="autor" placeholder="Autor del libro" required>
@@ -64,5 +66,7 @@
     <div id="resumenLibros"></div>
     <script src="./js/libros.js"></script>
 </body>
-
+<footer>
+  <p>&copy; 2025 Maximiliano Lopez - PP1_JS Evaluativo Nro. 1</p>
+</footer>
 </html>

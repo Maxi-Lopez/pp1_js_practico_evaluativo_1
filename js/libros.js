@@ -158,13 +158,13 @@ const filtrarPorLeido = () => {
     if (leido === 'leidos') {
         const librosFiltrados = libros.filter(libro => libro.leido === true)
         renderizarLibros(librosFiltrados)
-        mostrarResumen(libros)
+        mostrarResumen(librosFiltrados)
 
     }
     if (leido === 'noLeidos') {
         const librosFiltrados = libros.filter(libro => libro.leido === false)
         renderizarLibros(librosFiltrados)
-        mostrarResumen(libros)
+        mostrarResumen(librosFiltrados)
 
     }
 }
