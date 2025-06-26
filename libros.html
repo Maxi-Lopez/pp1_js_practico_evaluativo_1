@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
     <link rel="stylesheet" href="styles.css">
 
     <title>Gestor de libros</title>
@@ -12,13 +11,6 @@
 
 <body>
     <h2> - Gestor de libros - </h2>
-=======
-    <title>Registro de libros</title>
-</head>  
-
-<body>
-    <h2> - Registro de libros - </h2>
->>>>>>> 4f354bfa4e3d11b764e1d7890f556909ee955a5b
     <form onsubmit="agregarLibro(); return false">
         <input type="text" id="titulo" placeholder="Título del libro" required>
         <input type="text" id="autor" placeholder="Autor del libro" required>
@@ -29,30 +21,24 @@
     </form>
     <br>
     <h3>Filtrar Libros</h3>
-    <input type="text" id="busqueda" placeholder="Buscar título ...." oninput="filtrarLibros()">
+    <input type="text" id="busqueda" placeholder="Buscar título ...." oninput="buscarLibros()">
     <br>
-<<<<<<< HEAD
 <div style="display: flex; gap: 40px; align-items: center;">
   <div>
     <h3>Filtrar por género</h3>
-    <select id="filtroGenero" onchange="filtrarPorGenero()">
+    <select id="filtroGenero" onchange="filtrarLibros()">
       <option value="todos">Todos</option>
     </select>
   </div>
   <div>
     <h3>Filtrar por leídos</h3>
-    <select id="filtroLeido" onchange="filtrarPorLeido()">
+    <select id="filtroLeido" onchange="filtrarLibros()">
         <option value="todos">Todos</option>
         <option value="leidos">Leídos</option>
         <option value="noLeidos">No leídos</option>
 </select>
   </div>
 </div>    
-=======
-    <h3>Filtrar Libros por género</h3>
-    <select id="filtroGenero" onchange="filtrarPorGenero()">
-        <option value="todos">Todos</option>
->>>>>>> 4f354bfa4e3d11b764e1d7890f556909ee955a5b
     </select>
     <br>
     <br>
@@ -65,14 +51,11 @@
                 <th>Año de Publicación</th>
                 <th>Género</th>
                 <th>Eliminar</th>
-<<<<<<< HEAD
                 <th>¿Leido?</th>
                 <th>
                     <button onclick="ordenarLibro()">Ordenar por fecha</button>
                 </th>                    
                 
-=======
->>>>>>> 4f354bfa4e3d11b764e1d7890f556909ee955a5b
             </tr>
         </thead>
         <tbody>
@@ -83,11 +66,7 @@
     <div id="resumenLibros"></div>
     <script src="./js/libros.js"></script>
 </body>
-<<<<<<< HEAD
 <footer>
   <p>&copy; 2025 Maximiliano Lopez - PP1_JS Evaluativo Nro. 1</p>
 </footer>
-=======
-
->>>>>>> 4f354bfa4e3d11b764e1d7890f556909ee955a5b
 </html>
